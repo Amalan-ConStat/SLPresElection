@@ -5,16 +5,13 @@
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
-[![](https://www.r-pkg.org/badges/version/SLPresElection?color=orange)](https://cran.r-project.org/package=SLPresElection)
-[![packageversion](https://img.shields.io/badge/Package%20version-1.0.0-orange.svg?style=flat-square)](commits/main)
-[![MIT
-license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-
 [![CRAN
 checks](https://badges.cranchecks.info/summary/SLPresElection.svg)](https://cran.r-project.org/web/checks/check_results_SLPresElection.html)
 [![](https://www.r-pkg.org/badges/version/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
+[![packageversion](https://img.shields.io/badge/Package%20version-1.0.0-orange.svg?style=flat-square)](commits/main)
 [![Dependencies](https://tinyverse.netlify.com/badge/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
+[![MIT
+license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 [![](http://cranlogs.r-pkg.org/badges/grand-total/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
 [![](http://cranlogs.r-pkg.org/badges/last-month/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
