@@ -7,8 +7,6 @@
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.0-orange.svg?style=flat-square)](commits/main)
-[![GitHub
-license](https://img.shields.io/github/license/Amalan-ConStat/SLPresElection.svg?style=popout)](https://github.com/Amalan-ConStat/SLPresElection/blob/main/LICENSE)
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/SLPresElection)
 ![downloads](https://cranlogs.r-pkg.org/badges/SLPresElection)
 ![downloads](http://cranlogs.r-pkg.org/badges/last-week/SLPresElection)
@@ -17,10 +15,9 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![GitHub
 issues](https://img.shields.io/github/issues/Amalan-ConStat/SLPresElection.svg?style=popout)](https://github.com/Amalan-ConStat/SLPresElection/issues)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/Amalan-ConStat/SLPresElection?branch=main&svg=true)](https://ci.appveyor.com/project/Amalan-ConStat/SLPresElection)
 [![Codecov test
 coverage](https://codecov.io/gh/Amalan-ConStat/SLPresElection/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection?branch=main)
+
 <!-- badges: end -->
 
 ## How to engage with “SLPresElection” the first time ?
