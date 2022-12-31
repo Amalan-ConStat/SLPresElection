@@ -1,0 +1,43 @@
+template:
+  package: preferably
+  bootstrap: 5
+
+development:
+  mode: release
+
+navbar:
+  title: SLPresElection
+  left:
+    - icon: fa-home
+      href: index.html
+    - text: Data
+      href: reference/index.html
+    - text: "Version News"
+      href: news/index.html
+  right:
+    - icon: fa-user-circle
+      href: https://amalan-con-stat.netlify.com
+    - icon: fa-twitter
+      href: https://twitter.com/Amalan_Con_Stat
+    - icon: fa-github
+      href: https://github.com/Amalan-ConStat
+    - icon: fa-linkedin
+      href: https://www.linkedin.com/in/amalan-mahendran-72b86b37/
+
+authors:
+  Amalan Mahendran:
+    href: https://www.linkedin.com/in/amalan-mahendran-72b86b37/
+  Pushpakanthie Wijekoon:
+    href: https://sci.pdn.ac.lk/scs/staff/Pushpakanthie-Wijekoon
+
+reference:
+  - title: Election Data
+    desc: SL Presidential Election Data
+    contents:
+        - Election1982
+        - Election1988
+        - Election1994
+        - Election1999
+        - Election2005
+        - Election2010
+        - Election2015

@@ -5,7 +5,7 @@
 \alias{Election2015}
 \title{Presidential Election 2015}
 \format{
-A data frame with 6 columns and 5434 rows.
+A data frame with 6 columns and 4692 rows.
 \describe{
 \item{\code{Year}}{Year of the presidential election}
 \item{\code{District}}{District Names}
