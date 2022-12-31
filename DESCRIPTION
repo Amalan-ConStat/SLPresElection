@@ -1,6 +1,6 @@
 Type: Package
 Package: SLPresElection
-Title: Presidential Election data of Sri Lanka from 1982 to 2015
+Title: Presidential Election Data of Sri Lanka from 1982 to 2015
 Version: 1.0.0
 Authors@R: 
     person("Amalan", "Mahendran", , "amalan0595@gmail.com", role = c("aut", "cre"),
@@ -15,9 +15,7 @@ BugReports: https://github.com/Amalan-ConStat/SLPresElection/issues
 Depends: 
     R (>= 4.0.0)
 Suggests: 
-    covr,
-    devtools,
-    knitr,
+    spelling,
     testthat
 Encoding: UTF-8
 Language: en-US
