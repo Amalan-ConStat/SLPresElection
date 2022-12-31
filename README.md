@@ -10,6 +10,11 @@
 [![MIT
 license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
+[![CRAN
+checks](https://badges.cranchecks.info/summary/SLPresElection.svg)](https://cran.r-project.org/web/checks/check_results_SLPresElection.html)
+[![](https://www.r-pkg.org/badges/version/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
+[![Dependencies](https://tinyverse.netlify.com/badge/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
+
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/SLPresElection)
 ![downloads](https://cranlogs.r-pkg.org/badges/SLPresElection)
 ![downloads](http://cranlogs.r-pkg.org/badges/last-week/SLPresElection)
@@ -23,8 +28,7 @@ issues](https://img.shields.io/github/issues/Amalan-ConStat/SLPresElection.svg?s
 [![Codecov test
 coverage](https://codecov.io/gh/Amalan-ConStat/SLPresElection/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection?branch=main)
 [![CodeFactor](https://www.codefactor.io/repository/github/Amalan-ConStat/SLPresElection/badge)](https://www.codefactor.io/repository/github/Amalan-ConStat/SLPresElection)
-[![](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection/branch/main/graph/badge.svg?token=67ad1b44-d883-4df5-bb6b-6bce023be735)](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection)
-
+[![](https://img.shields.io/github/languages/code-size/Amalan-ConStat/SLPresElection.svg)](https://github.com/Amalan-ConStat/SLPresElection)
 <!-- badges: end -->
 
 ## How to engage with “SLPresElection” the first time ?
