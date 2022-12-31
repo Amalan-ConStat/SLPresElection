@@ -9,16 +9,21 @@
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.0-orange.svg?style=flat-square)](commits/main)
 [![MIT
 license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/SLPresElection)
 ![downloads](https://cranlogs.r-pkg.org/badges/SLPresElection)
 ![downloads](http://cranlogs.r-pkg.org/badges/last-week/SLPresElection)
+
 [![Project Status: Active - The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![GitHub
 issues](https://img.shields.io/github/issues/Amalan-ConStat/SLPresElection.svg?style=popout)](https://github.com/Amalan-ConStat/SLPresElection/issues)
+
 [![Codecov test
 coverage](https://codecov.io/gh/Amalan-ConStat/SLPresElection/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection?branch=main)
+[![CodeFactor](https://www.codefactor.io/repository/github/Amalan-ConStat/SLPresElection/badge)](https://www.codefactor.io/repository/github/Amalan-ConStat/SLPresElection)
+[![](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection/branch/main/graph/badge.svg?token=67ad1b44-d883-4df5-bb6b-6bce023be735)](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection)
 
 <!-- badges: end -->
 
