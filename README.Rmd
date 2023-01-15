@@ -76,7 +76,7 @@ Something to ponder on the tables in these pdf files
 
 ## Just a glimpse
 
-```{r Registered and Polled Votes,fig.width=12,fig.height=8,quietly = TRUE}
+```{r Registered_and_Polled_Votes,fig.width=12,fig.height=8,quietly = TRUE}
 Election1982 %>% 
   subset(ColNames=="No of Registered Electors" & Electorate=="Final District Results"| 
          ColNames=="Total No of Votes Polled" & Electorate=="Final District Results")  %>% 
@@ -101,7 +101,7 @@ Final_Data<-rbind.data.frame(Election1982,Election1988,
 years<-unique(Final_Data$Year)
 ```
 
-```{r Registered and Polled Votes over the years,fig.width=12,fig.height=8,quietly = TRUE}
+```{r Registered_and_Polled_Votes_over_the_years,fig.width=12,fig.height=8,quietly = TRUE}
 Final_Data %>%
   subset(ColNames=="No of Registered Electors" & Electorate=="Final District Results" | 
            ColNames=="Total No of Votes Polled" & Electorate=="Final District Results") %>%
@@ -117,7 +117,7 @@ Final_Data %>%
   ggtitle("The registered and polled votes for all seven elections")
 ```
 
-```{r Rejected Votes over the years,fig.width=8,fig.height=6,quietly = TRUE}
+```{r Rejected_Votes_over_the_years,fig.width=8,fig.height=6,quietly = TRUE}
 Final_Data %>%
   subset(ColNames=="No of Rejected Votes" & Electorate=="Final District Results") %>%
   group_by(Year,ColNames) %>%

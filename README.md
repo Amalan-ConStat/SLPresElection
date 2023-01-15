@@ -95,7 +95,7 @@ Election1982 %>%
   ggtitle("For 1982 the registered and polled votes for all districts")
 ```
 
-<img src="man/figures/Registered and Polled Votes-1.png" width="100%" />
+<img src="man/figures/Registered_and_Polled_Votes-1.png" width="100%" />
 
 ``` r
 Final_Data<-rbind.data.frame(Election1982,Election1988,
@@ -120,7 +120,7 @@ Final_Data %>%
   ggtitle("The registered and polled votes for all seven elections")
 ```
 
-<img src="man/figures/Registered and Polled Votes over the years-1.png" width="100%" />
+<img src="man/figures/Registered_and_Polled_Votes_over_the_years-1.png" width="100%" />
 
 ``` r
 Final_Data %>%
@@ -136,7 +136,7 @@ Final_Data %>%
   ggtitle("No of Rejected Votes Over the Years")
 ```
 
-<img src="man/figures/Rejected Votes over the years-1.png" width="100%" />
+<img src="man/figures/Rejected_Votes_over_the_years-1.png" width="100%" />
 
 ## Conclusion
 

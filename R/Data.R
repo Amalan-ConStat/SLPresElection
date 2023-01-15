@@ -26,7 +26,7 @@
 #'
 #' @source
 #' Extracted from the pdf published by the Sri Lankan Elections commission at
-#' \url{https://elections.gov.lk/web/wp-content/uploads/election-results/presidential-elections/PresidentialElections1982.pdf}
+#' \url{https://elections.gov.lk}
 #' or the project that I have completed in scraping the data from the pdf file at :
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}.
 #'
@@ -60,7 +60,7 @@
 #'
 #' @source
 #' Extracted from the pdf published by the Sri Lankan Elections commission at
-#' \url{https://elections.gov.lk/web/wp-content/uploads/election-results/presidential-elections/PresidentialElections1988.pdf}
+#' \url{https://elections.gov.lk}
 #' or the project that I have completed in scraping the data from the pdf file at :
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}
 #'
@@ -94,7 +94,7 @@
 #'
 #' @source
 #' Extracted from the pdf published by the Sri Lankan Elections commission at
-#' \url{https://elections.gov.lk/web/wp-content/uploads/election-results/presidential-elections/PresidentialElections1994.pdf}
+#' \url{https://elections.gov.lk}
 #' or the project that I have completed in scraping the data from the pdf file at :
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}
 #'
@@ -128,7 +128,7 @@
 #'
 #' @source
 #' Extracted from the pdf published by the Sri Lankan Elections commission at
-#' \url{https://elections.gov.lk/web/wp-content/uploads/election-results/presidential-elections/PresidentialElections1999.pdf}
+#' \url{https://elections.gov.lk}
 #' or the project that I have completed in scraping the data from the pdf file at :
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}
 #'
@@ -162,7 +162,7 @@
 #'
 #' @source
 #' Extracted from the pdf published by the Sri Lankan Elections commission at
-#' \url{https://elections.gov.lk/web/wp-content/uploads/election-results/presidential-elections/PresidentialElections2005(allisland).pdf}
+#' \url{https://elections.gov.lk}
 #' or the project that I have completed in scraping the data from the pdf file at :
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}
 #'
@@ -196,7 +196,7 @@
 #'
 #' @source
 #' Extracted from the pdf published by the Sri Lankan Elections commission at
-#' \url{https://elections.gov.lk/web/wp-content/uploads/election-results/presidential-elections/PresidentialElections2010.pdf}
+#' \url{https://elections.gov.lk}
 #' or the project that I have completed in scraping the data from the pdf file at :
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}
 #'
@@ -230,7 +230,7 @@
 #'
 #' @source
 #' Extracted from the pdf published by the Sri Lankan Elections commission at
-#' \url{https://elections.gov.lk/web/wp-content/uploads/election-results/presidential-elections/PresidentialElections2015.pdf}
+#' \url{https://elections.gov.lk}
 #' or the project that I have completed in scraping the data from the pdf file at :
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}
 #'
