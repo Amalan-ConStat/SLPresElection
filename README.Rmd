@@ -138,7 +138,7 @@ Results of all elections occured in Sri Lanka are available at the [Election Com
 
 #### Thank You
 
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/Amalan-ConStat/R-fitODBOD.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FAmalan-ConStat%2FR-fitODBOD)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/Amalan-ConStat/SLPresElection.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FAmalan-ConStat%2FSLPresElection)
 
 [ ![](https://img.shields.io/badge/LinkedIn-Amalan%20Mahendran-black.svg?style=flat) ]( https://www.linkedin.com/in/amalan-mahendran-72b86b37/)
 [ ![](https://img.shields.io/badge/Research%20Gate-Amalan%20Mahendran-black.svg?style=flat) ]( https://www.researchgate.net/profile/Amalan_Mahendran )
