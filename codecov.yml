@@ -6,6 +6,9 @@ sudo: false
 
 cache: packages
 
+codecov:
+ token: 67ad1b44-d883-4df5-bb6b-6bce023be735
+
 after_success:
 
 - Rscript -e 'covr::codecov()'
