@@ -6,8 +6,10 @@
 <!-- badges: start -->
 
 [![](https://www.r-pkg.org/badges/version/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
-[![packageversion](https://img.shields.io/badge/Package%20version-1.0.0-orange.svg?style=flat-square)](commits/main)
-[![Dependencies](https://tinyverse.netlify.com/badge/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
+[![CRAN
+checks](https://badges.cranchecks.info/summary/SLPresElection.svg)](https://cran.r-project.org/web/checks/check_results_SLPresElection.html)
+[![r-universe status
+badge](https://Amalan-ConStat.r-universe.dev/badges/SLPresElection)](https://Amalan-ConStat.r-universe.dev/SLPresElection)\`
 [![MIT
 license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
