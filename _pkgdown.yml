@@ -1,9 +1,16 @@
+authors:
+  Amalan Mahendran:
+    href: https://www.amalan-mahendran.com
+
 template:
-  package: preferably
   bootstrap: 5
+  bslib:
+    bg: "#ffffff"
+    fg: "#060035"
+    primary: "#060035"
 
 development:
-  mode: release
+  mode: auto
 
 navbar:
   title: SLPresElection
@@ -16,9 +23,9 @@ navbar:
       href: news/index.html
   right:
     - icon: fa-user-circle
-      href: http://www.amalan-mahendran.com
+      href: https://www.amalan-mahendran.com
     - icon: fa-hashtag
-      href: https://twitter.com/Amalan_Con_Stat
+      href: https://x.com/Amalan_Con_Stat
     - icon: fa-twitter
       href: https://bsky.app/profile/amalanconstat.bsky.social
     - icon: fa-github
@@ -27,12 +34,6 @@ navbar:
       href: https://www.linkedin.com/in/amalan-mahendran-72b86b37/
     - icon: fa-google
       href: https://scholar.google.com/citations?user=fj4E-GMAAAAJ&hl=en
-
-authors:
-  Amalan Mahendran:
-    href: https://www.linkedin.com/in/amalan-mahendran-72b86b37/
-  Pushpakanthie Wijekoon:
-    href: https://sci.pdn.ac.lk/scs/staff/Pushpakanthie-Wijekoon
 
 reference:
   - title: Election Data
@@ -45,3 +46,14 @@ reference:
         - Election2005
         - Election2010
         - Election2015
+
+home:
+  title: SLPresElection - An R package for Sri Lanka presidential election data
+  description: Sri Lanka Presidential Election Data
+  sidebar:
+    structure: [links, license, community, citation, authors, dev]
+
+footer:
+  structure:
+    left: developed_by
+    right: built_with
