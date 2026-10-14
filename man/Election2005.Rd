@@ -5,35 +5,54 @@
 \alias{Election2005}
 \title{Presidential Election 2005}
 \format{
-A data frame with 6 columns and 3494 rows.
+A data frame with 6 columns.
 \describe{
-\item{\code{Year}}{Year of the presidential election}
-\item{\code{District}}{District Names}
-\item{\code{Electorate}}{Electorate Names, Postal District Votes, Final District Results and Displaced District Votes}
-\item{\code{ColNames}}{Candidate Names, Total No of Valid Votes, No of Rejected Votes, Total No of Votes Polled and No of Registered Electors}
-\item{\code{Votes}}{No of votes for the ColNames variable}
-\item{\code{Percentage}}{Percentage of votes with regard to the No of Registered Electors and the Total No of Votes Polled for Total No of Votes Polled and all other ColNames variable, respectively}
+\item{Year}{Year of the presidential election.}
+\item{District}{Electoral district name.}
+\item{Electorate}{Polling-division name, Postal District Votes, Displaced District Votes, or Final District Results.}
+\item{ColNames}{Candidate name or summary label: Total No of Valid Votes,
+No of Rejected Votes, Total No of Votes Polled, or No of Registered Electors.}
+\item{Votes}{Candidate vote count or the count associated with a summary
+label. Registered-elector rows contain elector counts rather than votes.}
+\item{Percentage}{Reported or calculated percentage on a 0--100 scale.
+The denominator depends on the row type and reporting table.
+Missing values indicate percentages that were not supplied or calculated.}
 }
 }
 \source{
-Extracted from the pdf published by the Sri Lankan Elections commission at
-\url{https://elections.gov.lk}
-or the project that I have completed in scraping the data from the pdf file at :
-\url{https://github.com/Amalan-ConStat/PresidentialElection}
+Election Commission of Sri Lanka:
+\url{https://elections.gov.lk/en/elections/results_pre_E.html}.
+
+Data extraction and preparation:
+\url{https://github.com/Amalan-ConStat/PresidentialElection}.
 }
 \usage{
 data(Election2005)
 }
 \description{
-The fifth presidential election of Sri Lanka was held in 2005. Its results are published
-as a pdf file. The data available in this file is scraped and summarised as a data-frame Election2005.
+Results of the Sri Lankan presidential election held in 2005,
+extracted from PDF result tables and prepared as Election2005.
 }
 \details{
-There are 22 districts and 160 electorates in Sri Lanka. In 2005 thirteen candidates participated in this election and
-Mahinda Rajapaksha became the fourth executive president.
+Thirteen candidates contested this election.
+
+Percentages were calculated for district totals, postal votes, and
+displaced votes in Jaffna, Vanni, and Trincomalee.
+Registered-elector rows were removed from postal and displaced-vote tables.
+
+The preparation functions used total polled votes as the denominator
+for candidate, valid-vote, and rejected-vote percentages in these tables.
+District turnout was calculated using registered electors.
+Candidate percentages in these tables therefore represent shares of
+polled votes rather than shares of valid votes.
+
+District totals and their component results are both included.
+These reporting levels should be analysed separately to avoid
+double-counting.
 }
 \examples{
-Election2005[Election2005$District == "Colombo" & Election2005$Electorate == "Colombo-North",]
+data(Election2005)
+Election2005[Election2005$District == "Colombo" & Election2005$Electorate == "Colombo-North", ]
 
 }
 \keyword{datasets}

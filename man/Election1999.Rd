@@ -5,35 +5,48 @@
 \alias{Election1999}
 \title{Presidential Election 1999}
 \format{
-A data frame with 6 columns and 3446 rows.
+A data frame with 6 columns.
 \describe{
-\item{\code{Year}}{Year of the presidential election}
-\item{\code{District}}{District Names}
-\item{\code{Electorate}}{Electorate Names, Postal District Votes and Final District Results}
-\item{\code{ColNames}}{Candidate Names, Total No of Valid Votes, No of Rejected Votes, Total No of Votes Polled and No of Registered Electors}
-\item{\code{Votes}}{No of votes for the ColNames variable}
-\item{\code{Percentage}}{Percentage of votes with regard to the No of Registered Electors and the Total No of Votes Polled for Total No of Votes Polled and all other ColNames variable, respectively}
+\item{Year}{Year of the presidential election.}
+\item{District}{Electoral district name.}
+\item{Electorate}{Polling-division name, Postal District Votes, or Final District Results.}
+\item{ColNames}{Candidate name or summary label: Total No of Valid Votes,
+No of Rejected Votes, Total No of Votes Polled, or No of Registered Electors.}
+\item{Votes}{Candidate vote count or the count associated with a summary
+label. Registered-elector rows contain elector counts rather than votes.}
+\item{Percentage}{Reported percentage on a 0--100 scale.
+The denominator depends on the row type. Missing values indicate
+percentages that were not supplied.}
 }
 }
 \source{
-Extracted from the pdf published by the Sri Lankan Elections commission at
-\url{https://elections.gov.lk}
-or the project that I have completed in scraping the data from the pdf file at :
-\url{https://github.com/Amalan-ConStat/PresidentialElection}
+Election Commission of Sri Lanka:
+\url{https://elections.gov.lk/en/elections/results_pre_E.html}.
+
+Data extraction and preparation:
+\url{https://github.com/Amalan-ConStat/PresidentialElection}.
 }
 \usage{
 data(Election1999)
 }
 \description{
-The fourth presidential election of Sri Lanka was held in 1999. Its results are published
-as a pdf file. The data available in this file is scraped and summarised as a data-frame Election1999.
+Results of the Sri Lankan presidential election held in 1999,
+extracted from PDF result tables and prepared as Election1999.
 }
 \details{
-There are 22 districts and 160 electorates in Sri Lanka. In 1999 thirteen candidates participated in this election and
-Chandrika Bandaranaike Kumarathunga became the executive president for the second time.
+Thirteen candidates contested this election.
+
+Postal registered-elector rows with missing counts were removed.
+No additional count corrections or percentage recalculations were
+recorded in the correction section of the preparation script.
+
+District totals and their component results are both included.
+These reporting levels should be analysed separately to avoid
+double-counting.
 }
 \examples{
-Election1999[Election1999$District == "Colombo" & Election1999$Electorate == "Colombo-North",]
+data(Election1999)
+Election1999[Election1999$District == "Colombo" & Election1999$Electorate == "Colombo-North", ]
 
 }
 \keyword{datasets}

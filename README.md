@@ -5,7 +5,6 @@
 
 <!-- badges: start -->
 
-
 [![](https://www.r-pkg.org/badges/version/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
 [![CRAN
 checks](https://badges.cranchecks.info/summary/SLPresElection.svg)](https://cran.r-project.org/web/checks/check_results_SLPresElection.html)
@@ -62,7 +61,7 @@ library(viridisLite); library(ggthemr); ggthemr("flat dark")
 
 ## What does “SLPresElection” ?
 
-The seven presidential election results of Sri Lanka from 1982 to 2015
+The eight presidential election results of Sri Lanka from 1982 to 2019
 are available in the election commission [website as pdf
 files](https://elections.gov.lk/web/en/elections/elections-results/presidential-elections-results/).
 However, through pdf scraping these results are available as csv files
@@ -77,6 +76,24 @@ Polled/ Total Registered) \* $100$ 4. Total Valid $%$ = (Total Valid/
 Total Polled) \* $100$ 5. Total Rejected $%$ = (Total Rejected/ Total
 Polled) \* $100$ 6. Candidate $i$ $%$ = (Candidate A/ Total Polled )
 \*$100$
+
+## Data preparation articles
+
+Eight vignettes describe the extraction and preparation of the
+presidential election datasets for 1982, 1988, 1994, 1999, 2005, 2010,
+2015, and 2019. They document count corrections, percentage
+calculations, missing-value handling, and label harmonisation where
+applicable. The 2019 article also includes the initial OCR prompt,
+corrections to missing and misplaced result tables, and the
+registered-elector discrepancies retained in the data.
+
+``` r
+# List the available package vignettes
+browseVignettes("SLPresElection")
+
+# Open the 2019 data preparation article
+vignette("election-2019", package = "SLPresElection")
+```
 
 ## Just a glimpse
 
@@ -97,12 +114,11 @@ Election1982 %>%
   ggtitle("For 1982 the registered and polled votes for all districts")
 ```
 
-<img src="man/figures/Registered_and_Polled_Votes-1.png" width="100%" />
+<img src="man/figures/Registered_and_Polled_Votes-1.png" alt="" width="100%" />
 
 ``` r
-Final_Data<-rbind.data.frame(Election1982,Election1988,
-                             Election1994,Election1999,
-                             Election2005,Election2010,Election2015)
+Final_Data<-rbind.data.frame(Election1982,Election1988,Election1994,Election1999,
+                             Election2005,Election2010,Election2015,Election2019)
 years<-unique(Final_Data$Year)
 ```
 
@@ -119,10 +135,10 @@ Final_Data %>%
   geom_text(vjust=-1.25,size=4)+
   scale_x_continuous(breaks = years)+
   theme(legend.position = "bottom")+scale_color_viridis_d()+
-  ggtitle("The registered and polled votes for all seven elections")
+  ggtitle("The registered and polled votes for all eight elections")
 ```
 
-<img src="man/figures/Registered_and_Polled_Votes_over_the_years-1.png" width="100%" />
+<img src="man/figures/Registered_and_Polled_Votes_over_the_years-1.png" alt="" width="100%" />
 
 ``` r
 Final_Data %>%
@@ -138,7 +154,7 @@ Final_Data %>%
   ggtitle("No of Rejected Votes Over the Years")
 ```
 
-<img src="man/figures/Rejected_Votes_over_the_years-1.png" width="100%" />
+<img src="man/figures/Rejected_Votes_over_the_years-1.png" alt="" width="100%" />
 
 ## Conclusion
 

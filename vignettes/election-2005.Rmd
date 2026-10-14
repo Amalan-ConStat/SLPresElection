@@ -1,0 +1,35 @@
+---
+title: "2005 Presidential Election: Data Preparation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{2005 Presidential Election: Data Preparation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Preparation scope
+
+This article documents the changes implemented for the 2005 presidential election. It preserves the exact capitalisation of the labels used in that script. Replacement values and source findings have not been independently verified for this documentation.
+
+## District-total percentages
+
+The `FixPercent()` function selects each district's `Final District Results` table and calculates percentages using row positions. With the documented row order, candidate rows, total valid votes, and rejected votes are divided by total polled votes and multiplied by 100. Total polled votes are divided by registered electors. Results are rounded to two decimal places.
+
+## Postal-vote percentages
+
+The same function calculates percentages for `Postal District Votes`. It divides candidate rows, total valid votes, and rejected votes by total polled votes. It does not calculate a postal turnout percentage.
+
+## Displaced-vote percentages
+
+The `FixPercentD()` function applies equivalent calculations to `Displaced District Votes` for Jaffna, Vanni, and Trincomalee.
+
+## Registered-elector rows in special tables
+
+The code removes every registered-elector row from postal and displaced-vote tables. Unlike the 1982, 1988, and 1999 removal rules, this removal is not conditional on the count being missing.
+
+## Implementation details requiring review
+
+Candidate percentages are calculated using total polled votes. If the intended measure is candidate share of valid votes, this denominator must be changed before describing the percentages as corrected.
+
+The functions depend on fixed column positions and row ordering. Calculated tables are assigned back by position rather than by district, reporting-table, and row-label keys. The list construction uses a fixed offset of 22 and reserves entries 45–47 for displaced votes. This assumes exactly 22 districts; a different number could overwrite entries or misalign results. The supplied script contains no reconciliation assertions demonstrating that the replacements match their intended rows.
+

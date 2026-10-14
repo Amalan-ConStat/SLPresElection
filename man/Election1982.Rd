@@ -5,35 +5,49 @@
 \alias{Election1982}
 \title{Presidential Election 1982}
 \format{
-A data frame with 6 columns and 2018 rows.
+A data frame with 6 columns.
 \describe{
-\item{\code{Year}}{Year of the presidential election}
-\item{\code{District}}{District Names}
-\item{\code{Electorate}}{Electorate Names, Postal District Votes and Final District Results}
-\item{\code{ColNames}}{Candidate Names, Total No of Valid Votes, No of Rejected Votes, Total No of Votes Polled and No of Registered Electors}
-\item{\code{Votes}}{No of votes for the ColNames variable}
-\item{\code{Percentage}}{Percentage of votes with regard to the No of Registered Electors and the Total No of Votes Polled for Total No of Votes Polled and all other ColNames variable, respectively}
+\item{Year}{Year of the presidential election.}
+\item{District}{Electoral district name.}
+\item{Electorate}{Polling-division name, Postal District Votes, or Final District Results.}
+\item{ColNames}{Candidate name or summary label: Total No of Valid Votes,
+No of Rejected Votes, Total No of Votes Polled, or No of Registered Electors.}
+\item{Votes}{Candidate vote count or the count associated with a summary
+label. Registered-elector rows contain elector counts rather than votes.}
+\item{Percentage}{Reported or recalculated percentage on a 0--100 scale.
+The denominator depends on the row type. Missing values indicate
+percentages that were not supplied or calculated.}
 }
 }
 \source{
-Extracted from the pdf published by the Sri Lankan Elections commission at
-\url{https://elections.gov.lk}
-or the project that I have completed in scraping the data from the pdf file at :
+Election Commission of Sri Lanka:
+\url{https://elections.gov.lk/en/elections/results_pre_E.html}.
+
+Data extraction and preparation:
 \url{https://github.com/Amalan-ConStat/PresidentialElection}.
 }
 \usage{
 data(Election1982)
 }
 \description{
-The first presidential election of Sri Lanka was held in 1982. Its results are published
-as a pdf file. The data available in this file is scraped and summarised as a data-frame Election1982.
+Results of the Sri Lankan presidential election held in 1982,
+extracted from PDF result tables and prepared as Election1982.
 }
 \details{
-There are 22 districts and 160 electorates in Sri Lanka. In 1982 six candidates participated in this election and J.R. Jayawardene
-became the first executive president.
+Six candidates contested this election.
+
+Preparation included corrections to Walapane total polled votes,
+Teldeniya registered-elector counts, corresponding district totals,
+and selected percentages. Postal registered-elector rows with missing
+counts were removed. Remaining missing counts were replaced with zero.
+
+District totals and their component results are both included.
+These reporting levels should be analysed separately to avoid
+double-counting.
 }
 \examples{
-Election1982[Election1982$District == "Colombo" & Election1982$Electorate == "Colombo-North",]
+data(Election1982)
+Election1982[Election1982$District == "Colombo" & Election1982$Electorate == "Colombo-North", ]
 
 }
 \keyword{datasets}

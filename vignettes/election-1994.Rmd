@@ -1,0 +1,16 @@
+---
+title: "1994 Presidential Election: Data Preparation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{1994 Presidential Election: Data Preparation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Preparation scope
+
+This article documents the changes implemented for the 1994 presidential election. It preserves the exact capitalisation of the labels used in that script. Replacement values and source findings have not been independently verified for this documentation.
+
+## Missing vote counts
+
+All missing values in `Election1994$Votes` are replaced with zero. The correction section states that no other changes were needed. It contains no targeted candidate-count correction or percentage recalculation.
