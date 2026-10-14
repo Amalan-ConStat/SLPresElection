@@ -68,6 +68,7 @@ However, through pdf scraping these results are available as csv files because o
 These csv files are available as data-frames in this R package.
 
 Something to ponder on the tables in these pdf files
+
 1. Total Polled = Total Valid + Total Rejected
 2. Total Valid = Votes casted to Candidate $A$ + $...$ + Votes casted to Candidate $Z$
 3. Total Polled $%$ = (Total Polled/ Total Registered) * $100$ 

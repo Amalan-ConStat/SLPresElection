@@ -1,5 +1,16 @@
-pandoc: '3.2'
-pkgdown: 2.1.1
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2024-10-11T03:29Z
+articles:
+  election-1982: election-1982.html
+  election-1988: election-1988.html
+  election-1994: election-1994.html
+  election-1999: election-1999.html
+  election-2005: election-2005.html
+  election-2010: election-2010.html
+  election-2015: election-2015.html
+  election-2019: election-2019.html
+last_built: 2026-10-14T14:39Z
+urls:
+  reference: https://amalan-constat.github.io/SLPresElection/reference
+  article: https://amalan-constat.github.io/SLPresElection/articles

@@ -69,13 +69,15 @@ because of [my pet
 project](https://github.com/Amalan-ConStat/PresidentialElection). These
 csv files are available as data-frames in this R package.
 
-Something to ponder on the tables in these pdf files 1. Total Polled =
-Total Valid + Total Rejected 2. Total Valid = Votes casted to Candidate
-$A$ + $...$ + Votes casted to Candidate $Z$ 3. Total Polled $%$ = (Total
-Polled/ Total Registered) \* $100$ 4. Total Valid $%$ = (Total Valid/
-Total Polled) \* $100$ 5. Total Rejected $%$ = (Total Rejected/ Total
-Polled) \* $100$ 6. Candidate $i$ $%$ = (Candidate A/ Total Polled )
-\*$100$
+Something to ponder on the tables in these pdf files
+
+1.  Total Polled = Total Valid + Total Rejected
+2.  Total Valid = Votes casted to Candidate $A$ + $...$ + Votes casted
+    to Candidate $Z$
+3.  Total Polled $%$ = (Total Polled/ Total Registered) \* $100$
+4.  Total Valid $%$ = (Total Valid/ Total Polled) \* $100$
+5.  Total Rejected $%$ = (Total Rejected/ Total Polled) \* $100$
+6.  Candidate $i$ $%$ = (Candidate A/ Total Polled ) \*$100$
 
 ## Data preparation articles
 

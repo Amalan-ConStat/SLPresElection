@@ -1,0 +1,15 @@
+# 1999 Presidential Election: Data Preparation
+
+## Preparation scope
+
+This article documents the changes implemented for the 1999 presidential
+election. It preserves the exact capitalisation of the labels used in
+that script. Replacement values and source findings have not been
+independently verified for this documentation.
+
+## Unavailable postal registered-elector counts
+
+Removed rows where `ColNames` is `No of Registered Electors`,
+`Electorate` is `Postal District Votes`, and `Votes` is missing. The
+correction section contains no candidate-count replacement or percentage
+recalculation.

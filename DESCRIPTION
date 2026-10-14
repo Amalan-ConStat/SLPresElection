@@ -12,8 +12,7 @@ Description: Provides Sri Lankan presidential election results for
     postal and displaced votes where available. Results were extracted
     from PDF documents and prepared in a consistent tabular format.
 License: MIT + file LICENSE
-URL: https://github.com/Amalan-ConStat/SLPresElection,
-    https://amalan-constat.github.io/SLPresElection/index.html
+URL: https://github.com/Amalan-ConStat/SLPresElection,https://amalan-constat.github.io/SLPresElection/index.html
 BugReports: https://github.com/Amalan-ConStat/SLPresElection/issues
 Depends: 
     R (>= 4.1.0)

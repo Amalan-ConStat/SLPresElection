@@ -1,0 +1,160 @@
+# 2019 Presidential Election: Data Preparation
+
+## Initial OCR extraction prompt
+
+The following prompt was used to extract the 2019 election results from
+the uploaded PDFs into the supplied ODS template. The original wording
+is preserved.
+
+“The pdf file i have uploaded contains the results of the election. Each
+page contains results for a electoral District. The results are in
+tables, where four columns exist with the column names Name of the
+candidate, Party Abbreviation, Votes Received, Percentage. There are 35
+candidates. After the candidate results the summary is Total Valid
+Votes, Rejected Votes, Total Polled, Registered No of Electors as
+consecutive rows. These summaries also contain counts and percentages. i
+have uploaded an ods file with candidate names and summaries, but not
+the counts and percentages. Can you extract the counts and percentages
+and transfer it to the ods file for each electoral district, it should
+be one sheet for one electoral district. Can you do that ? Use OCR ?”
+
+The same request was subsequently applied to the remaining district
+PDFs. Counts and percentages were extracted for all 35 candidates and
+the four summary rows in each result table. Subsequent validation
+identified the missing tables, misplaced pages, and source discrepancies
+documented below.
+
+## Preparation scope
+
+This article documents the changes implemented for the 2019 presidential
+election. It preserves the exact capitalisation of the labels used in
+that script. Replacement values and source findings have not been
+independently verified for this documentation.
+
+## Supplemented missing results
+
+The narrative documents adding Polling Division K — Kilinochchi, which
+was omitted from the 12-page Jaffna PDF. The added table contained all
+35 candidates and four summary rows and became the thirteenth workbook
+sheet. The narrative attributes the replacement to the official Election
+Commission result; the supplied R code imports the completed workbook
+rather than downloading or performing that replacement.
+
+## Replaced misplaced result tables
+
+The following replacements are documented. Page numbers refer to the
+original PDFs, counting the first page as page 1.
+
+| Uploaded PDF | Page | Supplied result          | Required result      |
+|--------------|-----:|--------------------------|----------------------|
+| Colombo      |    2 | Digamadulla postal votes | Colombo postal votes |
+| Colombo      |    5 | Anuradhapura East        | Borella              |
+| Kegalle      |    2 | Kurunegala postal votes  | Kegalle postal votes |
+| Ratnapura    |   10 | Kolonnawa in Colombo     | Kolonna in Ratnapura |
+
+The narrative states that the extracted tables were corrected while the
+original PDFs were retained unchanged.
+
+## Preserved registered-elector discrepancies
+
+Printed district totals and component totals were retained and
+documented rather than forced to agree. Component totals include
+postal-vote and polling-division elector counts.
+
+| District   | Printed district total | Component total | Component minus district |
+|------------|-----------------------:|----------------:|-------------------------:|
+| Hambantota |                485,786 |         485,986 |                     +200 |
+| Jaffna     |                564,714 |         564,984 |                     +270 |
+| Kalutara   |                955,079 |         955,080 |                       +1 |
+| Ratnapura  |                864,978 |         864,979 |                       +1 |
+
+These are registered-elector disagreements, not candidate-vote
+disagreements. The comparison alone does not identify the incorrect
+individual count.
+
+## Imported and checked the ODS tables
+
+Each sheet is read from `A1:D41`, excluding notes below the result
+table. The first sheet’s name supplies the district name. Labels are
+trimmed and internal whitespace condensed without lowercasing. Counts
+and percentages are converted to numeric values.
+
+The code stops if a table has other than 35 candidate rows, other than
+four summary rows, or any missing counts. It also stops on duplicate
+combinations of year, district, electorate, and row label.
+
+## Aligned summary and reporting labels
+
+| Original summary label    | Replacement label         |
+|---------------------------|---------------------------|
+| Total Valid Votes         | Total No of Valid Votes   |
+| Rejected Votes            | No of Rejected Votes      |
+| Total Polled              | Total No of Votes Polled  |
+| Registered No of Electors | No of Registered Electors |
+
+District-total tables are labelled `Final District Results`, and postal
+tables are labelled `Postal District Votes`. Polling-division prefixes
+such as `A -` are removed, and spaces in the remaining electorate names
+are converted to hyphens.
+
+ODS percentage proportions are multiplied by 100 and rounded to two
+decimal places, so 0.5949 becomes 59.49. This changes the storage scale,
+rather than recalculating a percentage from vote counts.
+
+## Aligned district names
+
+| Original district label | Replacement label |
+|-------------------------|-------------------|
+| Kandy                   | Mahanuwara        |
+| Moneragala              | Monaragala        |
+| Nuwara Eliya            | Nuwara-Eliya      |
+
+This recoding is applied to the combined `Election_Data` without a year
+restriction. The subsequent electorate mapping is restricted to 2019
+records. Capitalisation is preserved in the explicit replacement labels.
+
+## Aligned electorate names with 2015
+
+The code applies the following 26 district-specific mappings to 2019:
+
+| District     | Original electorate label | Replacement label |
+|--------------|---------------------------|-------------------|
+| Anuradhapura | Horowpothana              | Horowapatana      |
+| Anuradhapura | Madawachchiya             | Medawachchiya     |
+| Anuradhapura | Mihinthale                | Mihintale         |
+| Badulla      | Haliela                   | Hali-Ela          |
+| Badulla      | Haputhale                 | Haputale          |
+| Badulla      | Mahiyangana               | Mahiyangane       |
+| Badulla      | Uvaparanagama             | Uva-Paranagama    |
+| Batticaloa   | Kalkudah                  | Kalkuda           |
+| Galle        | Benthara-Elpitiya         | Bentara-Elpitiya  |
+| Galle        | Rathgama                  | Ratgama           |
+| Gampaha      | Aththanagalla             | Attanagalla       |
+| Gampaha      | Meerigama                 | Mirigama          |
+| Jaffna       | Uduppiddy                 | Udupiddy          |
+| Kalutara     | Agalawaththa              | Agalawatta        |
+| Kalutara     | Bulathsinghala            | Bulathsinhala     |
+| Kalutara     | Mathugama                 | Matugama          |
+| Kegalle      | Aranayaka                 | Aranayake         |
+| Mahanuwara   | Galgedara                 | Galagedara        |
+| Mahanuwara   | Harispatthuwa             | Harispattuwa      |
+| Mahanuwara   | Pathadumbara              | Patha-Dumbara     |
+| Mahanuwara   | Udadumbara                | Udu-Dumbara       |
+| Matale       | Ratthota                  | Rattota           |
+| Monaragala   | Bibila                    | Bibile            |
+| Nuwara-Eliya | Kothmale                  | Kotmale           |
+| Trincomalee  | Muthur                    | Mutur             |
+| Trincomalee  | Seruvila                  | Seruwila          |
+
+## Validation findings and export scope
+
+The narrative reports correcting OCR errors against scans and checking
+candidate totals against valid votes, valid plus rejected votes against
+polled votes, and component counts against district totals. Those
+vote-reconciliation checks are described in prose; the executable 2019
+import implements structural and duplicate checks, not those arithmetic
+assertions.
+
+Presence tables are constructed before and after the name mappings to
+support inspection across election years. They do not automatically
+assert that every expected label matches.

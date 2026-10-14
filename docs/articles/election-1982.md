@@ -1,0 +1,53 @@
+# 1982 Presidential Election: Data Preparation
+
+## Preparation scope
+
+This article documents the changes implemented for the 1982 presidential
+election. It preserves the exact capitalisation of the labels used in
+that script. Replacement values and source findings have not been
+independently verified for this documentation.
+
+## Postal registered-elector rows
+
+Removed rows labelled `No of Registered Electors` when `Electorate` is
+`Postal District Votes` and `Votes` is missing. Other postal rows
+remain.
+
+## Walapane and Nuwara-Eliya vote totals
+
+The code assigns 34,120 total polled votes to Walapane in Nuwara-Eliya,
+replacing the 24,120 figure described in the comments. It assigns
+174,817 total polled votes to `Final District Results` for Nuwara-Eliya,
+replacing the commented figure of 164,817.
+
+Walapane percentages are recalculated as follows:
+
+| Measure                  | Formula               | Percentage |
+|--------------------------|-----------------------|-----------:|
+| Total No of Votes Polled | 100 × 34,120 / 38,414 |      88.82 |
+| Total No of Valid Votes  | 100 × 33,723 / 34,120 |      98.84 |
+
+The latter replaces the 139.81% value described in the comments.
+
+## Teldeniya and Mahanuwara registered electors
+
+The code assigns 31,145 registered electors to Teldeniya, replacing the
+commented value of 3,145. It assigns 564,767 registered electors to the
+Mahanuwara district total, replacing 536,767. Teldeniya turnout is
+recalculated as 100 × 27,279 / 31,145 = 87.59%, replacing the commented
+867.38%.
+
+## Remaining missing vote counts
+
+After removing unavailable postal registered-elector rows, all remaining
+missing values in `Votes` are replaced with zero. The code does not
+apply a general zero replacement to `Percentage`.
+
+## Checks and documentation limits
+
+The national figures written in the script also require review: listed
+candidate votes sum to 6,519,705, whereas valid votes are stated as
+6,522,153. Stated valid and rejected votes sum to 6,602,653, whereas
+total polled votes are stated as 6,602,617. These are inconsistencies in
+the script’s written reference figures, not verified discrepancies in
+the exported data.

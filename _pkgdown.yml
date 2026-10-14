@@ -1,3 +1,5 @@
+url: https://amalan-constat.github.io/SLPresElection/
+
 authors:
   Amalan Mahendran:
     href: https://www.amalan-mahendran.com
@@ -14,43 +16,105 @@ development:
 
 navbar:
   title: SLPresElection
-  left:
-    - icon: fa-home
+  structure:
+    left: [home, reference, articles, news]
+    right: [website, x, bluesky, github, linkedin, scholar]
+  components:
+    home:
+      icon: fa-home
+      aria-label: Home
       href: index.html
-    - text: Data
+    reference:
+      text: Data
       href: reference/index.html
-    - text: "Version News"
+    articles:
+      text: Data Preparation
+      menu:
+        - text: All articles
+          href: articles/index.html
+        - text: "1982 Election"
+          href: articles/election-1982.html
+        - text: "1988 Election"
+          href: articles/election-1988.html
+        - text: "1994 Election"
+          href: articles/election-1994.html
+        - text: "1999 Election"
+          href: articles/election-1999.html
+        - text: "2005 Election"
+          href: articles/election-2005.html
+        - text: "2010 Election"
+          href: articles/election-2010.html
+        - text: "2015 Election"
+          href: articles/election-2015.html
+        - text: "2019 Election"
+          href: articles/election-2019.html
+    news:
+      text: Version News
       href: news/index.html
-  right:
-    - icon: fa-user-circle
+    website:
+      icon: fa-user-circle
+      aria-label: Personal website
       href: https://www.amalan-mahendran.com
-    - icon: fa-hashtag
+    x:
+      icon: fa-hashtag
+      aria-label: X
       href: https://x.com/Amalan_Con_Stat
-    - icon: fa-twitter
+    bluesky:
+      text: Bluesky
       href: https://bsky.app/profile/amalanconstat.bsky.social
-    - icon: fa-github
+    github:
+      icon: fa-github
+      aria-label: GitHub
       href: https://github.com/Amalan-ConStat
-    - icon: fa-linkedin
+    linkedin:
+      icon: fa-linkedin
+      aria-label: LinkedIn
       href: https://www.linkedin.com/in/amalan-mahendran-72b86b37/
-    - icon: fa-google
+    scholar:
+      icon: fa-google
+      aria-label: Google Scholar
       href: https://scholar.google.com/citations?user=fj4E-GMAAAAJ&hl=en
 
 reference:
   - title: Election Data
-    desc: SL Presidential Election Data
+    desc: >
+      Sri Lankan presidential election results for eight elections
+      from 1982 to 2019.
     contents:
-        - Election1982
-        - Election1988
-        - Election1994
-        - Election1999
-        - Election2005
-        - Election2010
-        - Election2015
-        - Election2019
+      - Election1982
+      - Election1988
+      - Election1994
+      - Election1999
+      - Election2005
+      - Election2010
+      - Election2015
+      - Election2019
+
+articles:
+  - title: Data Extraction and Preparation
+    desc: >
+      Year-specific documentation of data extraction, count corrections,
+      percentage calculations, missing-value handling, and label
+      harmonisation. The 2019 article also documents the OCR prompt,
+      missing and misplaced result tables, and preserved
+      registered-elector discrepancies.
+    contents:
+      - election-1982
+      - election-1988
+      - election-1994
+      - election-1999
+      - election-2005
+      - election-2010
+      - election-2015
+      - election-2019
 
 home:
-  title: SLPresElection - An R package for Sri Lanka presidential election data
-  description: Sri Lanka Presidential Election Data
+  title: SLPresElection - Sri Lankan Presidential Election Data, 1982-2019
+  description: >
+    An R package containing Sri Lankan presidential election results
+    for 1982, 1988, 1994, 1999, 2005, 2010, 2015, and 2019.
+    Includes candidate vote counts, percentages, summary counts,
+    and articles documenting data extraction and preparation.
   sidebar:
     structure: [links, license, community, citation, authors, dev]
 
