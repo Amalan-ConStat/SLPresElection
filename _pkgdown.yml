@@ -46,6 +46,7 @@ reference:
         - Election2005
         - Election2010
         - Election2015
+        - Election2019
 
 home:
   title: SLPresElection - An R package for Sri Lanka presidential election data

@@ -9,3 +9,9 @@ Presidential Election results from 1982 to 2015 (seven elections) are available 
 ## submitted on 8th February 2024. 
 
 Personal website and social media sites updated.
+
+# Version 1.1.0
+
+## Submitted on 14th October 2026
+
+2019 presidential election results included.
