@@ -4,8 +4,8 @@
 
 Year-specific documentation of data extraction, count corrections,
 percentage calculations, missing-value handling, and label
-harmonisation. The 2019 article also documents the OCR prompt, missing
-and misplaced result tables, and preserved registered-elector
+harmonisation. The 2019 and 2024 articles document the OCR prompt,
+missing and misplaced result tables, and preserved registered-elector
 discrepancies.
 
 - [1982 Presidential Election: Data
@@ -24,3 +24,5 @@ discrepancies.
   Preparation](https://amalan-constat.github.io/SLPresElection/articles/election-2015.md):
 - [2019 Presidential Election: Data
   Preparation](https://amalan-constat.github.io/SLPresElection/articles/election-2019.md):
+- [2024 Presidential Election: Data
+  Preparation](https://amalan-constat.github.io/SLPresElection/articles/election-2024.md):

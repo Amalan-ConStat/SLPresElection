@@ -399,3 +399,75 @@
 #' \url{https://github.com/Amalan-ConStat/PresidentialElection}.
 #'
 "Election2019"
+
+#' Presidential Election 2024
+#'
+#' Results of the Sri Lankan presidential election held in 2024,
+#' extracted from PDF result tables using OCR and prepared as Election2024.
+#'
+#' @docType data
+#' @name Election2024
+#' @usage data(Election2024)
+#'
+#' @format A data frame with 6 columns.
+#' \describe{
+#' \item{Year}{Year of the presidential election.}
+#' \item{District}{Electoral district name, aligned with the naming
+#' convention used in the earlier datasets.}
+#' \item{Electorate}{Polling-division name, Postal District Votes, or
+#' Final District Results, where included.}
+#' \item{ColNames}{Candidate name or summary label: Total No of Valid Votes,
+#' No of Rejected Votes, Total No of Votes Polled, or No of Registered Electors.}
+#' \item{Votes}{Candidate vote count or the count associated with a summary
+#' label. Registered-elector rows contain elector counts rather than votes.}
+#' \item{Percentage}{Printed percentage on a 0--100 scale.
+#' Percentage proportions imported from ODS files were multiplied by 100
+#' and rounded to two decimal places. Missing values indicate percentages
+#' that were not supplied.}
+#' }
+#'
+#' @details
+#' The extracted result tables contain 38 candidate rows.
+#' Candidate numbering in the source tables skips number 4;
+#' no additional candidate row was inserted.
+#'
+#' Extracted results were assembled in district-specific ODS workbooks,
+#' with separate sheets for polling divisions and postal votes, before
+#' conversion to the common six-column dataset format.
+#' Summary labels and selected district, electorate, and candidate
+#' spellings were standardised during preparation.
+#' Label capitalisation was preserved.
+#'
+#' OCR values were checked against the source tables.
+#' Candidate vote counts were checked against total valid votes,
+#' and valid votes plus rejected votes were checked against votes polled.
+#' Printed percentages were retained rather than replaced with
+#' recalculated percentages. Printed dashes representing unavailable
+#' percentages were recorded as missing values.
+#'
+#' Candidate vote percentages relate to valid votes.
+#' Valid-vote and rejected-vote percentages relate to votes polled.
+#' Turnout percentages relate to registered electors.
+#'
+#' These tables record candidate votes and do not represent a separate
+#' count of second and third preferences.
+#'
+#' Where district totals and their component results are both included,
+#' these reporting levels should be analysed separately to avoid
+#' double-counting.
+#'
+#' @examples
+#' data(Election2024)
+#' Election2024[
+#'   Election2024$District == "Colombo" &
+#'     Election2024$Electorate == "Colombo-North",
+#' ]
+#'
+#' @source
+#' Election Commission of Sri Lanka:
+#' \url{https://elections.gov.lk/}.
+#'
+#' Data extraction and preparation:
+#' \url{https://github.com/Amalan-ConStat/PresidentialElection}.
+#'
+"Election2024"

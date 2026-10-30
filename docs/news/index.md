@@ -17,6 +17,14 @@ Personal website and social media sites updated.
 
 ## Version 1.1.0
 
+CRAN release: 2026-10-14
+
 ### Submitted on 14th October 2026
 
 2019 presidential election results included.
+
+## Version 2.0.0
+
+### Submitted on 30th October 2026
+
+2024 presidential election results included.

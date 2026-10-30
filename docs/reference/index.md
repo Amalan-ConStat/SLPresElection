@@ -2,8 +2,8 @@
 
 ## Election Data
 
-Sri Lankan presidential election results for eight elections from 1982
-to 2019.
+Sri Lankan presidential election results for nine elections from 1982 to
+2024.
 
 - [`Election1982`](https://amalan-constat.github.io/SLPresElection/reference/Election1982.md)
   : Presidential Election 1982
@@ -21,3 +21,5 @@ to 2019.
   : Presidential Election 2015
 - [`Election2019`](https://amalan-constat.github.io/SLPresElection/reference/Election2019.md)
   : Presidential Election 2019
+- [`Election2024`](https://amalan-constat.github.io/SLPresElection/reference/Election2024.md)
+  : Presidential Election 2024

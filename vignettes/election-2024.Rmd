@@ -1,0 +1,351 @@
+---
+title: "2024 Presidential Election: Data Preparation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{2024 Presidential Election: Data Preparation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Preparation scope
+
+This article documents the import, preparation, and validation steps
+implemented for the 2024 presidential election dataset.
+
+Results were extracted from PDF tables into district-specific ODS
+workbooks. Each workbook contains separate worksheets for polling
+divisions and postal votes. The completed workbooks were subsequently
+converted into the common six-column dataset format used by
+SLPresElection.
+
+The preparation script standardises summary labels and candidate names,
+aligns selected district and electorate names with earlier datasets,
+checks vote totals and candidate percentages, and calculates district
+totals from the component results.
+
+## OCR extraction prompt
+
+The following prompt was used to request extraction of the complete
+Jaffna district results into the supplied ODS template. It illustrates
+the extraction requirements used for the 2024 workbooks. Filenames,
+district names, and the number of worksheets were adjusted for other
+districts.
+
+The prompt specifies the requested extraction and validation steps.
+The subsequent sections document the checks implemented in the
+data preparation script.
+
+```text
+Extract the Sri Lanka 2024 presidential election results for Jaffna electoral district from the attached PDFs and populate the attached ODS template.
+
+Files supplied:
+  10_A(1).pdf, 10_B(1).pdf, 10_C(1).pdf, 10_D(1).pdf,
+10_E(1).pdf, 10_F.pdf, 10_G.pdf, 10_H.pdf, 10_I.pdf,
+10_J.pdf, 10_K.pdf, and 10_PV.pdf.
+
+Create one ODS workbook named Jaffna_2024.ods, with one sheet for each polling division A–K and one sheet for Postal Votes: 12 sheets in total. Identify the polling-division names from the PDFs.
+
+Requirements:
+  1. Use OCR where necessary and check extracted values against the PDF scans.
+2. Preserve the template’s candidate names, party abbreviations, capitalisation, row order, and formatting exactly. Populate only the votes and percentage columns.
+3. There are 38 candidate rows. The source numbering skips candidate number 4; do not insert an extra candidate or shift subsequent rows.
+4. Match results by candidate identity, rather than assuming that OCR row positions are correct.
+5. Populate all four summary rows:
+  - Total Number of Valid Votes
+- Number of Rejected Votes
+- Number of Votes Polled
+- Number of Registered Electors
+6. Preserve the percentages printed in the PDFs. Store them as numeric percentages with percentage formatting. Leave a printed dash blank; do not convert it to zero.
+7. Store vote counts as numbers, not text.
+8. For every sheet, verify that:
+  - All 38 candidates and four summary rows are present.
+- Candidate votes sum to Total Number of Valid Votes.
+- Valid votes + rejected votes = Number of Votes Polled.
+- Candidate percentages agree with candidate votes / valid votes, allowing for rounding.
+- Valid and rejected percentages use votes polled as the denominator.
+- Turnout percentage uses registered electors as the denominator.
+9. Do not change a printed figure simply to make a check pass. Report any source discrepancy separately from OCR errors.
+10. Check for duplicate, missing, or incorrectly labelled result tables. Add a brief source filename note to each sheet.
+11. Do not create a district-total result sheet unless an official district-total table is supplied. Any calculated aggregate must be clearly labelled as calculated.
+12. Return the completed downloadable ODS workbook and a brief account of validation results and any unresolved issues.
+
+Process all 12 PDFs. A previous chat processed only A–E; this upload supplies A–K and postal votes, so the new workbook should contain all 12 result tables.
+```
+
+District totals were subsequently calculated during R data preparation,
+as described below. This was separate from the OCR extraction request,
+which did not request a calculated district-total worksheet.
+
+## Standardised summary labels
+
+The following source labels are mapped to the common summary labels.
+
+| Source label | Standardised label |
+| --- | --- |
+| Total Number of Valid Votes | Total No of Valid Votes |
+| Total Valid Votes | Total No of Valid Votes |
+| Number of Rejected Votes | No of Rejected Votes |
+| Rejected Votes | No of Rejected Votes |
+| Number of Votes Polled | Total No of Votes Polled |
+| Total Polled | Total No of Votes Polled |
+| Number of Registered Electors | No of Registered Electors |
+| Number of Registered No of Electors | No of Registered Electors |
+| Registered No of Electors | No of Registered Electors |
+
+Rows matching the standardised summary labels are classified as summaries.
+The remaining result rows are classified as candidates.
+
+## Prepared percentages
+
+ODS percentages may be imported as numeric proportions or as displayed
+text containing a percent sign.
+
+Values containing a percent sign are divided by 100 to obtain
+proportions. Values without a percent sign are treated as proportions
+already. During preparation of the final dataset, these proportions are
+multiplied by 100 and rounded to two decimal places.
+
+For example, an imported proportion of `0.5949` becomes `59.49` in the
+final `Percentage` column. This changes the storage scale rather than
+recalculating the printed percentage from vote counts.
+
+Unavailable percentages, including nonnumeric dash entries, become
+missing values.
+
+## Checked worksheet structure
+
+The script constructs a worksheet-level diagnostic table containing:
+
+- Number of candidate rows.
+- Number of summary rows.
+- Number of missing vote counts.
+- Number of missing percentages.
+
+The expected structure is 38 candidates and four summaries per worksheet.
+
+The stopping condition associated with this diagnostic table is
+commented out in the supplied script. Consequently, the diagnostic
+identifies structural or missing-value issues but does not itself stop
+execution.
+
+A missing registered-elector percentage may be expected where the source
+does not supply one; the diagnostic currently counts it alongside other
+missing percentages.
+
+## Checked vote totals and candidate percentages
+
+For each worksheet, the script calculates:
+
+\[
+\text{Candidate difference}
+=
+\sum_{i=1}^{38}\text{Candidate votes}_i
+-
+\text{Total valid votes}
+\]
+
+and
+
+\[
+\text{Polling difference}
+=
+\text{Total valid votes}
++
+\text{Rejected votes}
+-
+\text{Votes polled}.
+\]
+
+Execution stops when a nonzero difference is detected.
+
+Candidate percentages are checked against:
+
+\[
+\text{Candidate percentage}_i
+=
+100 \times
+\frac{\text{Candidate votes}_i}{\text{Total valid votes}}.
+\]
+
+Both calculated and stored percentages are rounded to two decimal places.
+Execution stops when the absolute difference exceeds `0.010001`
+percentage points.
+
+These checks identify arithmetic inconsistencies in the imported data.
+They do not independently verify the figures against the original PDFs.
+Missing values require separate inspection because comparisons involving
+missing values are not retained by the discrepancy filters.
+
+## Standardised candidate names
+
+A supplied list of 38 canonical candidate names is used across all
+worksheets. The list is checked for its length, missing values, and
+duplicate names.
+
+Candidates are assigned sequential positions within each worksheet.
+The original name at each position is then compared with the corresponding
+canonical name.
+
+Two comparisons are produced:
+
+- An exact comparison preserving spelling and capitalisation.
+- A diagnostic comparison that ignores capitalisation, whitespace,
+  and full stops.
+
+The diagnostic lowercasing is confined to temporary comparison columns.
+It does not lowercase the names stored in the final dataset.
+
+Differences are summarised by candidate and worksheet. Differences that
+remain after diagnostic normalisation produce a message requesting
+manual review of candidate order.
+
+Canonical names are then assigned by candidate position. This step
+depends on confirming that every worksheet uses the same candidate
+order. The review message does not pause execution automatically.
+
+After replacement, the script checks that the combined data contain
+38 distinct candidate names and that every worksheet contains
+38 candidate records with 38 distinct names.
+
+## Prepared reporting labels and dataset columns
+
+Worksheet names are classified as postal votes, district totals, or
+polling divisions.
+
+| Reporting category | Final electorate label |
+| --- | --- |
+| Postal votes | Postal District Votes |
+| District total | Final District Results |
+| Polling division | Name derived from the worksheet |
+
+For polling divisions, a leading letter prefix such as `A -` is removed.
+Whitespace is condensed and remaining spaces are replaced with hyphens.
+
+The prepared dataset contains:
+
+| Column | Contents |
+| --- | --- |
+| Year | Election year: 2024 |
+| District | Electoral district name |
+| Electorate | Polling division or reporting category |
+| ColNames | Candidate name or standardised summary label |
+| Votes | Candidate votes or summary count |
+| Percentage | Percentage on a 0--100 scale |
+
+The script stops if duplicate combinations of `Year`, `District`,
+`Electorate`, and `ColNames` are detected at this stage.
+
+## Aligned district names
+
+The 2024 data are combined with the earlier election CSV files.
+District presence tables are constructed for inspection before and
+after applying these replacements:
+
+| Original district label | Replacement label |
+| --- | --- |
+| Kandy | Mahanuwara |
+| Nuwara Eliya | Nuwara-Eliya |
+
+These replacements are applied to the combined dataset without a year
+restriction.
+
+The proposed replacement of `Moneragala` with `Monaragala` is commented
+out in the supplied script and is not applied at this step.
+
+Capitalisation is preserved in the explicit replacement labels.
+
+## Calculated district totals
+
+The script constructs 2024 district totals from the imported component
+results. These are calculated aggregates rather than independently
+imported official district-total tables.
+
+Existing `Final District Results` and `Displaced District Votes` rows are
+excluded from the aggregation base.
+
+Candidate votes, valid votes, rejected votes, and votes polled are summed
+across the remaining component tables, including postal votes.
+
+Registered electors are summed from ordinary polling divisions.
+Postal registered-elector rows are excluded from this calculation to
+avoid double-counting.
+
+District percentages are calculated using the following denominators:
+
+| Row type | Percentage denominator |
+| --- | --- |
+| Candidate votes | Total valid votes |
+| Total valid votes | Votes polled |
+| Rejected votes | Votes polled |
+| Votes polled | Registered electors |
+| Registered electors | Percentage left missing |
+
+Calculated percentages are rounded to two decimal places. Thus,
+polling-division and postal percentages retain their source values,
+whereas the newly constructed district percentages are calculated.
+
+The district-level checks require:
+
+- Candidate votes to sum to total valid votes.
+- Valid votes plus rejected votes to equal votes polled.
+- Votes polled not to exceed registered electors.
+
+The calculated tables are labelled `Final District Results` and appended
+to the combined dataset. A subsequent check requires 42 district-total
+rows for each district represented in that check.
+
+The append step assumes that existing 2024 district-total rows are absent
+from the combined dataset. Excluding them from the aggregation base does
+not remove them before the calculated totals are appended.
+
+## Aligned electorate names with 2015
+
+The following 21 district-specific mappings are applied only to
+2024 records.
+
+| District | Original electorate label | Replacement label |
+| --- | --- | --- |
+| Anuradhapura | Horowpathana | Horowapatana |
+| Anuradhapura | Mihinthale | Mihintale |
+| Badulla | Haliela | Hali-Ela |
+| Badulla | Haputhale | Haputale |
+| Badulla | Mahiyangana | Mahiyangane |
+| Badulla | Uvaparanagama | Uva-Paranagama |
+| Digamadulla | Pothuvil | Pottuvil |
+| Gampaha | Negambo | Negombo |
+| Jaffna | Kopai | Kopay |
+| Jaffna | Uduppiddy | Udupiddy |
+| Jaffna | Vadducoddai | Vaddukkoddai |
+| Kurunegala | Paduwasnuwara | Panduwasnuwara |
+| Mahanuwara | Hewahata | Hewaheta |
+| Mahanuwara | Patadumbara | Patha-Dumbara |
+| Mahanuwara | Udadumbara | Udu-Dumbara |
+| Monaragala | Bibila | Bibile |
+| Monaragala | Moneragala | Monaragala |
+| Nuwara-Eliya | Kothmale | Kotmale |
+| Nuwara-Eliya | N.E.-Maskeliya | Nuwara-Eliya-Maskeliya |
+| Ratnapura | Nivithigala | Nivitigala |
+| Trincomalee | Muthur | Mutur |
+
+The mappings use exact district and electorate labels. Their application
+therefore depends on the district labels already matching those shown
+in the table.
+
+District--electorate presence tables are reconstructed after the mappings
+to support comparison across election years. These tables support manual
+inspection; they do not automatically assert that all expected names
+match.
+
+## Export and interpretation
+
+The final export includes the calculated district totals and the
+district and electorate name changes applied after the initial ODS
+import.
+
+Component tables and district totals represent different reporting
+levels. They should be analysed separately to avoid double-counting.
+
+The supplied code implements worksheet-level arithmetic checks,
+candidate-name consistency checks, and checks on calculated district
+totals. It does not independently compare those calculated totals with
+official district-total tables or assert a country-level reconciliation.

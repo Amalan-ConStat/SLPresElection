@@ -15,3 +15,9 @@ Personal website and social media sites updated.
 ## Submitted on 14th October 2026
 
 2019 presidential election results included.
+
+# Version 2.0.0
+
+## Submitted on 30th October 2026
+
+2024 presidential election results included.

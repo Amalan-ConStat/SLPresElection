@@ -61,7 +61,7 @@ library(viridisLite); library(ggthemr); ggthemr("flat dark")
 
 ## What does “SLPresElection” ?
 
-The eight presidential election results of Sri Lanka from 1982 to 2019
+The nine presidential election results of Sri Lanka from 1982 to 2024
 are available in the election commission [website as pdf
 files](https://elections.gov.lk/web/en/elections/elections-results/presidential-elections-results/).
 However, through pdf scraping these results are available as csv files
@@ -81,20 +81,21 @@ Something to ponder on the tables in these pdf files
 
 ## Data preparation articles
 
-Eight vignettes describe the extraction and preparation of the
+Nine vignettes describe the extraction and preparation of the
 presidential election datasets for 1982, 1988, 1994, 1999, 2005, 2010,
-2015, and 2019. They document count corrections, percentage
+2015, 2019 and 2024 They document count corrections, percentage
 calculations, missing-value handling, and label harmonisation where
-applicable. The 2019 article also includes the initial OCR prompt,
-corrections to missing and misplaced result tables, and the
-registered-elector discrepancies retained in the data.
+applicable. The 2019 and 2024 articles describe the OCR extraction
+workflow. The 2019 article also documents corrections to missing and
+misplaced result tables and the printed registered-elector discrepancies
+retained in the data.
 
 ``` r
 # List the available package vignettes
 browseVignettes("SLPresElection")
 
-# Open the 2019 data preparation article
-vignette("election-2019", package = "SLPresElection")
+# Open the 2024 data preparation article
+vignette("election-2024", package = "SLPresElection")
 ```
 
 ## Just a glimpse
@@ -120,7 +121,8 @@ Election1982 %>%
 
 ``` r
 Final_Data<-rbind.data.frame(Election1982,Election1988,Election1994,Election1999,
-                             Election2005,Election2010,Election2015,Election2019)
+                             Election2005,Election2010,Election2015,Election2019,
+                             Election2024)
 years<-unique(Final_Data$Year)
 ```
 
@@ -137,7 +139,7 @@ Final_Data %>%
   geom_text(vjust=-1.25,size=4)+
   scale_x_continuous(breaks = years)+
   theme(legend.position = "bottom")+scale_color_viridis_d()+
-  ggtitle("The registered and polled votes for all eight elections")
+  ggtitle("The registered and polled votes for all nine elections")
 ```
 
 <img src="man/figures/Registered_and_Polled_Votes_over_the_years-1.png" alt="" width="100%" />

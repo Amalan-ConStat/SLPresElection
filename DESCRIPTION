@@ -1,12 +1,12 @@
 Type: Package
 Package: SLPresElection
-Title: Presidential Election Data of "Sri Lanka" from 1982 to 2019
-Version: 1.1.0
+Title: Presidential Election Data of "Sri Lanka" from 1982 to 2024
+Version: 2.0.0
 Authors@R: 
     person("Amalan", "Mahendran", , "amalan0595@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0643-9052"))
 Description: Provides Sri Lankan presidential election results for
-    1982, 1988, 1994, 1999, 2005, 2010, 2015, and 2019. The datasets
+    1982, 1988, 1994, 1999, 2005, 2010, 2015, 2019 and 2024. The datasets
     contain candidate vote counts, reported percentages, and summary
     statistics for polling divisions and district results, including
     postal and displaced votes where available. Results were extracted

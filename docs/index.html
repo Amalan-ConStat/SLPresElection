@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>SLPresElection - Sri Lankan Presidential Election Data, 1982-2019 • SLPresElection</title>
+<title>SLPresElection - Sri Lankan Presidential Election Data, 1982-2024 • SLPresElection</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -15,10 +15,10 @@
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="SLPresElection - Sri Lankan Presidential Election Data, 1982-2019">
-<meta name="description" content="An R package containing Sri Lankan presidential election results for 1982, 1988, 1994, 1999, 2005, 2010, 2015, and 2019. Includes candidate vote counts, percentages, summary counts, and articles documenting data extraction and preparation.
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="SLPresElection - Sri Lankan Presidential Election Data, 1982-2024">
+<meta name="description" content="An R package containing Sri Lankan presidential election results for 1982, 1988, 1994, 1999, 2005, 2010, 2015, 2019 and 2024. Includes candidate vote counts, percentages, summary counts, and articles documenting data extraction and preparation.
 ">
-<meta property="og:description" content="An R package containing Sri Lankan presidential election results for 1982, 1988, 1994, 1999, 2005, 2010, 2015, and 2019. Includes candidate vote counts, percentages, summary counts, and articles documenting data extraction and preparation.
+<meta property="og:description" content="An R package containing Sri Lankan presidential election results for 1982, 1988, 1994, 1999, 2005, 2010, 2015, 2019 and 2024. Includes candidate vote counts, percentages, summary counts, and articles documenting data extraction and preparation.
 ">
 <meta property="og:image" content="https://amalan-constat.github.io/SLPresElection/logo.png">
 </head>
@@ -30,7 +30,7 @@
 
     <a class="navbar-brand me-2" href="index.html">SLPresElection</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">2.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,6 +53,7 @@
     <li><a class="dropdown-item" href="articles/election-2010.html">2010 Election</a></li>
     <li><a class="dropdown-item" href="articles/election-2015.html">2015 Election</a></li>
     <li><a class="dropdown-item" href="articles/election-2019.html">2019 Election</a></li>
+    <li><a class="dropdown-item" href="articles/election-2024.html">2024 Election</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Version News</a></li>
@@ -114,7 +115,7 @@
 <div class="section level2">
 <h2 id="what-does-slpreselection-">What does “SLPresElection” ?<a class="anchor" aria-label="anchor" href="#what-does-slpreselection-"></a>
 </h2>
-<p>The eight presidential election results of Sri Lanka from 1982 to 2019 are available in the election commission <a href="https://elections.gov.lk/web/en/elections/elections-results/presidential-elections-results/" class="external-link">website as pdf files</a>. However, through pdf scraping these results are available as csv files because of <a href="https://github.com/Amalan-ConStat/PresidentialElection" class="external-link">my pet project</a>. These csv files are available as data-frames in this R package.</p>
+<p>The nine presidential election results of Sri Lanka from 1982 to 2024 are available in the election commission <a href="https://elections.gov.lk/web/en/elections/elections-results/presidential-elections-results/" class="external-link">website as pdf files</a>. However, through pdf scraping these results are available as csv files because of <a href="https://github.com/Amalan-ConStat/PresidentialElection" class="external-link">my pet project</a>. These csv files are available as data-frames in this R package.</p>
 <p>Something to ponder on the tables in these pdf files</p>
 <ol style="list-style-type: decimal">
 <li>Total Polled = Total Valid + Total Rejected</li>
@@ -133,13 +134,13 @@
 <div class="section level2">
 <h2 id="data-preparation-articles">Data preparation articles<a class="anchor" aria-label="anchor" href="#data-preparation-articles"></a>
 </h2>
-<p>Eight vignettes describe the extraction and preparation of the presidential election datasets for 1982, 1988, 1994, 1999, 2005, 2010, 2015, and 2019. They document count corrections, percentage calculations, missing-value handling, and label harmonisation where applicable. The 2019 article also includes the initial OCR prompt, corrections to missing and misplaced result tables, and the registered-elector discrepancies retained in the data.</p>
+<p>Nine vignettes describe the extraction and preparation of the presidential election datasets for 1982, 1988, 1994, 1999, 2005, 2010, 2015, 2019 and 2024 They document count corrections, percentage calculations, missing-value handling, and label harmonisation where applicable. The 2019 and 2024 articles describe the OCR extraction workflow. The 2019 article also documents corrections to missing and misplaced result tables and the printed registered-elector discrepancies retained in the data.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># List the available package vignettes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/browseVignettes.html" class="external-link">browseVignettes</a></span><span class="op">(</span><span class="st">"SLPresElection"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Open the 2019 data preparation article</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"election-2019"</span>, package <span class="op">=</span> <span class="st">"SLPresElection"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Open the 2024 data preparation article</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"election-2024"</span>, package <span class="op">=</span> <span class="st">"SLPresElection"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="just-a-glimpse">Just a glimpse<a class="anchor" aria-label="anchor" href="#just-a-glimpse"></a>
@@ -162,7 +163,8 @@
 <p><img src="reference/figures/Registered_and_Polled_Votes-1.png" alt="" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Final_Data</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind.data.frame</a></span><span class="op">(</span><span class="va">Election1982</span>,<span class="va">Election1988</span>,<span class="va">Election1994</span>,<span class="va">Election1999</span>,</span>
-<span>                             <span class="va">Election2005</span>,<span class="va">Election2010</span>,<span class="va">Election2015</span>,<span class="va">Election2019</span><span class="op">)</span></span>
+<span>                             <span class="va">Election2005</span>,<span class="va">Election2010</span>,<span class="va">Election2015</span>,<span class="va">Election2019</span>,</span>
+<span>                             <span class="va">Election2024</span><span class="op">)</span></span>
 <span><span class="va">years</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">Final_Data</span><span class="op">$</span><span class="va">Year</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Final_Data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -177,7 +179,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>vjust<span class="op">=</span><span class="op">-</span><span class="fl">1.25</span>,size<span class="op">=</span><span class="fl">4</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="va">years</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_color_viridis_d</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"The registered and polled votes for all eight elections"</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"The registered and polled votes for all nine elections"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/Registered_and_Polled_Votes_over_the_years-1.png" alt="" width="100%"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Final_Data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
