@@ -121,6 +121,7 @@ home:
     and articles documenting data extraction and preparation.
   sidebar:
     structure: [links, license, community, citation, authors, dev]
+  strip_header: false
 
 footer:
   structure:

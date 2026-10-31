@@ -1,9 +1,12 @@
 # SLPresElection
 
-[![](http://cranlogs.r-pkg.org/badges/grand-total/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
-[![](http://cranlogs.r-pkg.org/badges/last-month/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
-[![](http://cranlogs.r-pkg.org/badges/last-week/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
+## 
 
+[![](https://www.r-pkg.org/badges/version/SLPresElection)](https://cran.r-project.org/package=SLPresElection)
+[![CRAN
+checks](https://badges.cranchecks.info/summary/SLPresElection.svg)](https://cran.r-project.org/web/checks/check_results_SLPresElection.html)
+[![r-universe status
+badge](https://Amalan-ConStat.r-universe.dev/badges/SLPresElection)](https://Amalan-ConStat.r-universe.dev/SLPresElection)
 [![Project Status: Active - The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -11,11 +14,14 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![GitHub
 issues](https://img.shields.io/github/issues/Amalan-ConStat/SLPresElection.svg?style=popout)](https://github.com/Amalan-ConStat/SLPresElection/issues)
 
+[![](http://cranlogs.r-pkg.org/badges/grand-total/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
+[![](http://cranlogs.r-pkg.org/badges/last-month/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
+[![](http://cranlogs.r-pkg.org/badges/last-week/SLPresElection?color=green)](https://cran.r-project.org/package=SLPresElection)
+
 [![Codecov test
 coverage](https://codecov.io/gh/Amalan-ConStat/SLPresElection/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Amalan-ConStat/SLPresElection?branch=main)
 [![CodeFactor](https://www.codefactor.io/repository/github/Amalan-ConStat/SLPresElection/badge)](https://www.codefactor.io/repository/github/Amalan-ConStat/SLPresElection)
 [![](https://img.shields.io/github/languages/code-size/Amalan-ConStat/SLPresElection.svg)](https://github.com/Amalan-ConStat/SLPresElection)
-
 [![MIT
 license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 

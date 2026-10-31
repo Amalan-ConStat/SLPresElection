@@ -25,6 +25,8 @@ CRAN release: 2026-10-14
 
 ## Version 2.0.0
 
+CRAN release: 2026-10-30
+
 ### Submitted on 30th October 2026
 
 2024 presidential election results included.
